@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DynaPuff:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "DynaPuff", system-ui, -apple-system, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+}
+
+body {
+  background-color: #f0f7ff; /* soft sky background from theme (bg-sky-50 / sky-100 mix) */
+  background-image: 
+    radial-gradient(#cbd5e1 2px, transparent 2px),
+    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+/* Custom classes for the "Vibrant Palette" High-Contrast Neo-Brutalist Theme */
+.shadow-brutal {
+  box-shadow: 10px 10px 0px rgba(15, 23, 42, 1);
+}
+
+.shadow-brutal-sm {
+  box-shadow: 4px 4px 0px rgba(15, 23, 42, 1);
+}
+
+.shadow-brutal-md {
+  box-shadow: 6px 6px 0px rgba(15, 23, 42, 1);
+}
+
+.shadow-brutal-indigo {
+  box-shadow: 6px 6px 0px #4f46e5;
+}
+
+.shadow-brutal-amber {
+  box-shadow: 6.5px 6.5px 0px #b45309;
+}
+
+.shadow-brutal-emerald {
+  box-shadow: 6px 6px 0px #065f46;
+}
+
+.shadow-brutal-rose {
+  box-shadow: 6px 6px 0px #9f1239;
+}
+
+/* Active Neo-brutalist interaction press effects */
+.btn-brutal-press {
+  transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-brutal-press:active {
+  transform: translate(4px, 4px) !important;
+  box-shadow: 2px 2px 0px rgba(15, 23, 42, 1) !important;
+}
+
+/* For buttons with custom primary shadows, make sure active state transitions properly */
+.btn-brutal-emerald-active:active {
+  transform: translate(4px, 4px) !important;
+  box-shadow: 2px 2px 0px #065f46 !important;
+}
+
+.btn-brutal-indigo-active:active {
+  transform: translate(4px, 4px) !important;
+  box-shadow: 2px 2px 0px #4f46e5 !important;
+}
+
+.btn-brutal-amber-active:active {
+  transform: translate(4px, 4px) !important;
+  box-shadow: 2px 2px 0px #b45309 !important;
+}
+
+/* Scrollbar behaviors */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Focus styles for inputs with Ring accent */
+.neo-input-focus:focus {
+  background-color: #ffffff;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px #c7d2fe;
+}
+
+/* Ensure disabled buttons have excellent visibility and never turn white/invisible in any browser */
+button:disabled,
+button[disabled] {
+  background-color: #cbd5e1 !important; /* High-contrast light gray background */
+  color: #334155 !important; /* Deep charcoal slate-700 text for strong readability */
+  border-color: #94a3b8 !important; /* Clear gray border */
+  cursor: not-allowed !important;
+  opacity: 0.65 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+

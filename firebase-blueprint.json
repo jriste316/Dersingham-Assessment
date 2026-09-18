@@ -1,0 +1,130 @@
+{
+  "entities": {
+    "Test": {
+      "title": "Test",
+      "description": "An academy assessment containing questions and time limits",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "yearGroup": { "type": "number" },
+        "timeLimitSeconds": { "type": "number" },
+        "questions": { "type": "array" },
+        "active": { "type": "boolean" }
+      },
+      "required": ["id", "title", "subject", "yearGroup", "timeLimitSeconds", "questions", "active"]
+    },
+    "ScoreRecord": {
+      "title": "ScoreRecord",
+      "description": "Student score attempt record for an assessment",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentUsername": { "type": "string" },
+        "studentName": { "type": "string" },
+        "yearGroup": { "type": "number" },
+        "testId": { "type": "string" },
+        "testTitle": { "type": "string" },
+        "subject": { "type": "string" },
+        "score": { "type": "number" },
+        "totalQuestions": { "type": "number" },
+        "percentage": { "type": "number" },
+        "durationSeconds": { "type": "number" },
+        "completedAt": { "type": "string" }
+      },
+      "required": ["id", "studentUsername", "studentName", "yearGroup", "testId", "testTitle", "subject", "score", "totalQuestions", "percentage", "durationSeconds", "completedAt"]
+    },
+    "User": {
+      "title": "User",
+      "description": "Registered pupils or staff in the academy portal",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "yearGroup": { "type": "number" },
+        "class": { "type": "string" },
+        "classSetDate": { "type": "string" },
+        "isAdmin": { "type": "boolean" },
+        "leadSubject": { "type": "string" }
+      },
+      "required": ["username", "name", "role"]
+    },
+    "ScienceAssessment": {
+      "title": "ScienceAssessment",
+      "description": "Science assessments curriculum data migrated from Google Sheets",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "yearGroup": { "type": "string" },
+        "questions": { "type": "array" }
+      },
+      "required": ["id", "title", "yearGroup", "questions"]
+    },
+    "ScienceSubmission": {
+      "title": "ScienceSubmission",
+      "description": "Science test submissions representing individual child results",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentName": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "assessmentId": { "type": "string" },
+        "totalScore": { "type": "number" },
+        "maxPossibleScore": { "type": "number" },
+        "percentage": { "type": "number" },
+        "answers": { "type": "object" }
+      },
+      "required": ["id", "studentName", "studentClass", "assessmentId", "totalScore", "maxPossibleScore", "percentage", "answers"]
+    },
+    "RosterStudent": {
+      "title": "RosterStudent",
+      "description": "Student in the uploaded school roster with premium and send details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "yearGroup": { "type": "number" },
+        "class": { "type": "string" },
+        "pupilPremium": { "type": "boolean" },
+        "send": { "type": "boolean" },
+        "googleId": { "type": "string" },
+        "email": { "type": "string" }
+      },
+      "required": ["id", "firstName", "lastName", "yearGroup", "class", "pupilPremium", "send"]
+    }
+  },
+  "firestore": {
+    "tests": {
+      "schema": "#/entities/Test",
+      "description": "Available school tests"
+    },
+    "scoreRecords": {
+      "schema": "#/entities/ScoreRecord",
+      "description": "Historic score records for students"
+    },
+    "registeredStudents": {
+      "schema": "#/entities/User",
+      "description": "All registered student users"
+    },
+    "assessments": {
+      "schema": "#/entities/ScienceAssessment",
+      "description": "Science assessments collections"
+    },
+    "submissions": {
+      "schema": "#/entities/ScienceSubmission",
+      "description": "Science submissions collections"
+    },
+    "registeredTeachers": {
+      "schema": "#/entities/User",
+      "description": "Registered teacher/staff profiles with admin status"
+    },
+    "pupilRoster": {
+      "schema": "#/entities/RosterStudent",
+      "description": "School student roster for matching google sign-ins"
+    }
+  }
+}
