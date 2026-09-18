@@ -18,3 +18,11 @@ View your app in AI Studio: https://ai.studio/apps/1cd6eb54-b947-408c-8777-ed1c4
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Build for Production / GitHub Pages
+
+To build the static distribution bundle:
+```bash
+npm run build
+```
+The production files will be output to the `dist` directory with relative asset paths configured for GitHub Pages hosting.
